@@ -7,7 +7,7 @@ module.exports = makeMetroConfig({
   resolver: {
     resolverMainFields: ['main-internal', 'browser', 'main'],
     extraNodeModules: {
-      'react-native-webview': __dirname,
+      '@open-fabric/react-native-webview': __dirname,
     },
   },
   transformer: {
