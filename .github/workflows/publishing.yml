@@ -5,10 +5,10 @@ on:
       - master
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -20,7 +20,9 @@ jobs:
         env:
           VERSION: ${{ steps.get_version.outputs.version }}
           GITHUB_TOKEN: ${{ secrets.OF_GITHUB_TOKEN }}
-        run: yarn publish --no-git-tag-version --new-version $VERSION
+        run: |
+          sed -i "s#react-native-webview#@open-fabric/react-native-webview#" ${GITHUB_WORKSPACE}/package.json
+          yarn publish --no-git-tag-version --new-version $VERSION
       - name: Get version
         id: get_version
         run: echo "::set-output name=version::$(npm pkg get version 2> /dev/null | sed 's/\"//g')"
