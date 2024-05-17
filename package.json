@@ -5,6 +5,7 @@
   "main-internal": "src/index.ts",
   "react-native": "src/index.ts",
   "typings": "index.d.ts",
+  "author": "Jamon Holmgren <jamon@infinite.red>",
   "contributors": [
     "Thibault Malbranche <malbranche.thibault@gmail.com>"
   ],
